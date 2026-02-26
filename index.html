@@ -3,67 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prorib - Çok Yakında</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-        }
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 2s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #bdc3c7;
-        }
-    </style>
+    <title>Prorib | Profesyonel RIB ve Marin Sistemleri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-    <div class="container">
-        <h1>prorib.com.tr</h1>
-        <div class="loader"></div>
-        <p>Web sitemiz şu anda yapım aşamasındadır.</p>
-        <p>Çok yakında sizlerle olacağız!</p>
-        
-        <div class="footer">
-            &copy; 2026 Prorib. Tüm hakları saklıdır.
+<body class="bg-black text-white">
+    <nav class="fixed w-full z-[100] px-12 py-8 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent">
+        <span class="text-2xl font-black tracking-tighter italic uppercase text-orange-600">PRORIB</span>
+        <div class="hidden lg:flex gap-10 text-[10px] font-bold uppercase tracking-[0.4em]">
+            <a href="#katalog" class="hover:text-orange-500 transition">Koleksiyon</a>
+            <a href="#tech" class="hover:text-orange-500 transition">Teknik Veri</a>
+            <a href="https://wa.me/905XXXXXXXXX" class="border-b border-orange-600 pb-1">İletişim</a>
         </div>
+    </nav>
+
+    <div class="swiper mainSlider h-screen">
+        <div class="swiper-wrapper" id="hero-slider"></div>
+        <div class="swiper-pagination"></div>
     </div>
 
+    <section id="katalog" class="py-32 px-12 max-w-[1600px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-baseline mb-20">
+            <h2 class="text-7xl font-black italic tracking-tighter uppercase">PRO <span class="text-zinc-800">SERİSİ.</span></h2>
+            <div class="flex gap-6 mt-8 overflow-x-auto pb-4 scrollbar-hide">
+                <button class="filter-btn active" onclick="filterProducts('axis')">AXIS</button>
+                <button class="filter-btn" onclick="filterProducts('ion')">ION</button>
+                <button class="filter-btn" onclick="filterProducts('orion')">ORION</button>
+                <button class="filter-btn" onclick="filterProducts('motorlar')">MOTORLAR</button>
+            </div>
+        </div>
+        <div id="product-grid" class="grid lg:grid-cols-3 md:grid-cols-2 gap-12"></div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
